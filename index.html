@@ -3,18 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DREVA — Coming Soon</title>
+  <title>DREVA — In Development</title>
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --navy: #0F1F33;
-      --blue: #0A55FF;
-      --text-light: #6B7280;
-      --border: #E6EAF0;
-      --bg-soft: #F9FAFB;
+      --navy: #18273d;
+      --blue: #0057ff;
+      --muted: #6b7280;
+      --border: #e6eaf0;
     }
 
     * {
@@ -33,55 +31,47 @@
       justify-content: center;
     }
 
-    .wrapper {
-      max-width: 1200px;
+    .wrap {
+      max-width: 900px;
       width: 100%;
       padding: 32px 20px;
     }
 
     .card {
       border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 64px 48px;
-      text-align: center;
-      background: #fff;
+      border-radius: 22px;
+      padding: 56px 48px;
     }
 
-    .logo img {
-      height: 64px;
-      margin-bottom: 32px;
+    .logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 36px;
     }
 
-    .badge {
+    .status {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      background: rgba(10, 85, 255, 0.08);
-      color: var(--blue);
-      padding: 10px 20px;
-      border-radius: 999px;
+      gap: 8px;
       font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 32px;
+      color: var(--blue);
+      background: rgba(0, 87, 255, 0.08);
+      padding: 8px 14px;
+      border-radius: 999px;
+      margin-bottom: 28px;
     }
 
-    .pulse {
-      width: 8px;
-      height: 8px;
+    .dot {
+      width: 6px;
+      height: 6px;
       background: var(--blue);
       border-radius: 50%;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(2.4); opacity: 0; }
     }
 
     h1 {
-      font-size: 46px;
-      font-weight: 600;
-      letter-spacing: -0.6px;
+      font-size: 40px;
+      font-weight: 500;
+      letter-spacing: -0.4px;
       margin-bottom: 20px;
     }
 
@@ -89,50 +79,36 @@
       color: var(--blue);
     }
 
-    .subtitle {
-      font-size: 17px;
-      color: var(--text-light);
-      max-width: 640px;
-      margin: 0 auto 48px;
-      line-height: 1.7;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      margin-top: 40px;
-    }
-
-    .feature {
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 28px;
-      text-align: left;
-      transition: all 0.3s ease;
-    }
-
-    .feature:hover {
-      border-color: var(--blue);
-      transform: translateY(-4px);
-    }
-
-    .feature h3 {
+    .copy {
       font-size: 16px;
-      margin-bottom: 8px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 44px;
+    }
+
+    .points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .point {
+      font-size: 15px;
       color: var(--navy);
     }
 
-    .feature p {
+    .point span {
+      color: var(--muted);
+      display: block;
+      margin-top: 6px;
       font-size: 14px;
-      color: var(--text-light);
-      line-height: 1.6;
     }
 
     footer {
       margin-top: 48px;
       font-size: 13px;
-      color: var(--text-light);
+      color: var(--muted);
     }
 
     @media (max-width: 768px) {
@@ -141,58 +117,71 @@
       }
 
       h1 {
-        font-size: 34px;
+        font-size: 32px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="wrapper">
+  <div class="wrap">
     <div class="card">
 
-      <!-- Logo -->
+      <!-- LOGO (INLINE SVG YOU ATTACHED) -->
       <div class="logo">
-        <img src="logo.png" alt="DREVA Logo">
+        <!-- Replace this SVG block ONLY if you update the logo -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="188" height="60" viewBox="0 0 187.98 60.35">
+          <defs>
+            <style>
+              .cls-1{fill:#0057ff;}
+              .cls-2{fill:#18273d;}
+            </style>
+          </defs>
+          <path class="cls-2" d="M0,51.91V11.86h15.79c12.55,0,21.26,7.99,21.26,20.06s-8.71,20-21.26,20H0Z"/>
+          <path class="cls-2" d="M63.35,51.91l-7.87-14.35h-6.24v14.35h-8.53V11.86h18.73c8.35,0,13.45,5.46,13.45,12.91Z"/>
+          <path class="cls-2" d="M129.19,51.91l-15.49-40.05h9.73l11.11,30.8 11.05-30.8h9.73Z"/>
+          <path class="cls-2" d="M178.67,51.91l-2.52-6.91h-17.89l-2.52,6.91Z"/>
+          <path class="cls-1" d="M114.64,36.84c-3.01,12.67-17.3,29.35-31.72,21.49-6.77-3.68-8.96-11.66-5.9-18.57Z"/>
+        </svg>
       </div>
 
-      <!-- Status -->
-      <div class="badge">
-        <span class="pulse"></span>
-        App in Development
+      <!-- STATUS -->
+      <div class="status">
+        <span class="dot"></span>
+        In development
       </div>
 
-      <!-- Headline -->
+      <!-- MAIN MESSAGE -->
       <h1>
-        Experience, <span>Redefined</span>
+        We work at the intersection of <span>marketing</span>, <span>tech</span>, and <span>design</span>.
       </h1>
 
-      <!-- Description -->
-      <p class="subtitle">
-        DREVA is currently in development. We’re crafting a focused, experience-driven
-        platform where design, technology, and clarity come together — without noise.
+      <p class="copy">
+        DREVA is taking shape.  
+        Quietly. Intentionally.  
+        We’re building a system where ideas turn into outcomes — without the noise.
       </p>
 
-      <!-- Feature Blocks -->
-      <div class="features">
-        <div class="feature">
-          <h3>Built on Experience</h3>
-          <p>The “E” in DREVA isn’t decoration — it stands for thoughtful experiences that actually work.</p>
+      <!-- KEY IDEAS -->
+      <div class="points">
+        <div class="point">
+          Strategy first
+          <span>No decoration. No guesswork.</span>
         </div>
 
-        <div class="feature">
-          <h3>Minimal by Design</h3>
-          <p>Clean interfaces, sharp systems, and zero distractions. Every element has a purpose.</p>
+        <div class="point">
+          Built to scale
+          <span>Processes, not patches.</span>
         </div>
 
-        <div class="feature">
-          <h3>Launching Soon</h3>
-          <p>We’re refining the final layers before opening access. Stay close — something solid is coming.</p>
+        <div class="point">
+          Experience matters
+          <span>For users. For brands. For growth.</span>
         </div>
       </div>
 
       <footer>
-        © 2026 DREVA®. Crafted with intention.
+        © 2026 DREVA
       </footer>
 
     </div>
