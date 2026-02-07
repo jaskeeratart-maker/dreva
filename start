@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DREVA — Coming Soon</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0F1F33;
+      --blue: #0A55FF;
+      --text-light: #6B7280;
+      --border: #E6EAF0;
+      --bg-soft: #F9FAFB;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wrapper {
+      max-width: 1200px;
+      width: 100%;
+      padding: 32px 20px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 64px 48px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .logo img {
+      height: 64px;
+      margin-bottom: 32px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(10, 85, 255, 0.08);
+      color: var(--blue);
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 32px;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--blue);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2.4); opacity: 0; }
+    }
+
+    h1 {
+      font-size: 46px;
+      font-weight: 600;
+      letter-spacing: -0.6px;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: var(--blue);
+    }
+
+    .subtitle {
+      font-size: 17px;
+      color: var(--text-light);
+      max-width: 640px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .feature {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      text-align: left;
+      transition: all 0.3s ease;
+    }
+
+    .feature:hover {
+      border-color: var(--blue);
+      transform: translateY(-4px);
+    }
+
+    .feature h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--navy);
+    }
+
+    .feature p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    footer {
+      margin-top: 48px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        padding: 40px 24px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="card">
+
+      <!-- Logo -->
+      <div class="logo">
+        <img src="logo.png" alt="DREVA Logo">
+      </div>
+
+      <!-- Status -->
+      <div class="badge">
+        <span class="pulse"></span>
+        App in Development
+      </div>
+
+      <!-- Headline -->
+      <h1>
+        Experience, <span>Redefined</span>
+      </h1>
+
+      <!-- Description -->
+      <p class="subtitle">
+        DREVA is currently in development. We’re crafting a focused, experience-driven
+        platform where design, technology, and clarity come together — without noise.
+      </p>
+
+      <!-- Feature Blocks -->
+      <div class="features">
+        <div class="feature">
+          <h3>Built on Experience</h3>
+          <p>The “E” in DREVA isn’t decoration — it stands for thoughtful experiences that actually work.</p>
+        </div>
+
+        <div class="feature">
+          <h3>Minimal by Design</h3>
+          <p>Clean interfaces, sharp systems, and zero distractions. Every element has a purpose.</p>
+        </div>
+
+        <div class="feature">
+          <h3>Launching Soon</h3>
+          <p>We’re refining the final layers before opening access. Stay close — something solid is coming.</p>
+        </div>
+      </div>
+
+      <footer>
+        © 2026 DREVA®. Crafted with intention.
+      </footer>
+
+    </div>
+  </div>
+
+</body>
+</html>
