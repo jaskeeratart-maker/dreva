@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DREVA — In Development</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #18273d;
+      --blue: #0057ff;
+      --muted: #6b7280;
+      --border: #e6eaf0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wrap {
+      max-width: 900px;
+      width: 100%;
+      padding: 32px 20px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 56px 48px;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: left;
+      margin-bottom: 36px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--blue);
+      background: rgba(0, 87, 255, 0.08);
+      padding: 8px 14px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--blue);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: 500;
+      letter-spacing: -0.4px;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: var(--blue);
+    }
+
+    .copy {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 44px;
+    }
+
+    .points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .point {
+      font-size: 15px;
+      color: var(--navy);
+    }
+
+    .point span {
+      color: var(--muted);
+      display: block;
+      margin-top: 6px;
+      font-size: 14px;
+    }
+
+    footer {
+      margin-top: 48px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        padding: 40px 24px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <div class="card">
+
+      <!-- LOGO (INLINE SVG YOU ATTACHED) -->
+      <div class="logo">
+        <!-- Replace this SVG block ONLY if you update the logo -->
+        <img src="dreva-logo.svg" alt="Dreva">
+      </div>
+
+      <!-- STATUS -->
+      <div class="status">
+        <span class="dot"></span>
+        In development
+      </div>
+
+      <!-- MAIN MESSAGE -->
+      <h1>
+        We work at the intersection of <span>marketing</span>, <span>tech</span>, and <span>design</span>.
+      </h1>
+
+      <p class="copy">
+        DREVA is taking shape.  
+        Quietly. Intentionally.  
+        We’re building a system where ideas turn into outcomes — without the noise.
+      </p>
+
+      <!-- KEY IDEAS -->
+      <div class="points">
+        <div class="point">
+          Strategy first
+          <span>No decoration. No guesswork.</span>
+        </div>
+
+        <div class="point">
+          Built to scale
+          <span>Processes, not patches.</span>
+        </div>
+
+        <div class="point">
+          Experience matters
+          <span>For users. For brands. For growth.</span>
+        </div>
+      </div>
+
+      <footer>
+        © 2026 DREVA
+      </footer>
+
+    </div>
+  </div>
+
+</body>
+</html>
