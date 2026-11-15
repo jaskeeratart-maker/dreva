@@ -1,557 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menu — Page 1</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --cream: #faf6ef;
-    --ink: #1a1612;
-    --mid: #4a3f35;
-    --light: #8a7a6a;
-    --rule: #c8bba8;
-    --accent: #2c2218;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: #d0c9be;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    font-family: 'Josefin Sans', sans-serif;
-  }
-
-  .page {
-    width: 420mm;
-    min-height: 297mm;
-    background: var(--cream);
-    display: grid;
-    grid-template-columns: 1fr 1.5px 1fr;
-    position: relative;
-    box-shadow: 0 8px 60px rgba(0,0,0,0.3);
-  }
-
-  .divider {
-    background: var(--rule);
-    margin: 12mm 0;
-  }
-
-  /* ─── PANEL ─── */
-  .panel { padding: 10mm 9mm; }
-  .panel-left { padding-right: 8mm; }
-  .panel-right { padding-left: 8mm; }
-
-  /* ─── SECTION HEADER ─── */
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28pt;
-    font-weight: 900;
-    letter-spacing: 0.05em;
-    color: var(--ink);
-    text-transform: uppercase;
-    margin-bottom: 1.5mm;
-    display: flex;
-    align-items: center;
-    gap: 6mm;
-  }
-  .section-title .icon { font-size: 18pt; opacity: 0.7; }
-  .section-rule {
-    border: none;
-    border-top: 2px solid var(--ink);
-    margin-bottom: 5mm;
-  }
-  .section-rule-thin {
-    border: none;
-    border-top: 0.75px solid var(--rule);
-    margin: 3mm 0;
-  }
-
-  /* ─── CATEGORY ─── */
-  .cat-label {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 6.5pt;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--mid);
-    margin: 4mm 0 1.5mm 0;
-  }
-
-  /* ─── MENU ITEM ─── */
-  .item {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 2mm;
-    margin-bottom: 1mm;
-  }
-  .item-name {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 7pt;
-    font-weight: 400;
-    color: var(--ink);
-    flex: 1;
-    line-height: 1.35;
-  }
-  .item-price {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 7pt;
-    color: var(--mid);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .item-desc {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 6pt;
-    font-style: italic;
-    color: var(--light);
-    line-height: 1.4;
-    margin-bottom: 1.5mm;
-  }
-  .item-indent {
-    padding-left: 3mm;
-  }
-  .item-mod {
-    font-size: 6.5pt;
-    color: var(--mid);
-  }
-
-  /* ─── BREAKFAST PANEL ─── */
-  .bk-item {
-    margin-bottom: 3.5mm;
-  }
-  .bk-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 8.5pt;
-    font-weight: 700;
-    color: var(--ink);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-  .bk-name .price {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 8pt;
-    font-weight: 400;
-  }
-  .bk-desc {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 6.5pt;
-    font-style: italic;
-    color: var(--mid);
-    line-height: 1.5;
-    margin-top: 0.5mm;
-  }
-
-  /* ─── TWO-COL GRID ─── */
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 5mm;
-  }
-
-  /* ─── EXTRAS ─── */
-  .extras-label {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 6pt;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--mid);
-    margin: 3mm 0 1mm 0;
-  }
-  .extras-line {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 6pt;
-    color: var(--ink);
-    line-height: 1.7;
-  }
-
-  /* ─── BREADS / SPREADS ─── */
-  .bs-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 4mm;
-    margin-top: 3mm;
-  }
-  .bs-head {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 6pt;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--mid);
-    margin-bottom: 1mm;
-  }
-  .bs-item {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 6.5pt;
-    color: var(--ink);
-    line-height: 1.7;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  /* ─── SHARE ME ─── */
-  .share-section {
-    margin-top: 5mm;
-    padding-top: 4mm;
-    border-top: 2px solid var(--ink);
-  }
-
-  /* ─── FOOTNOTE ─── */
-  .footnote {
-    margin-top: 4mm;
-    padding-top: 3mm;
-    border-top: 0.75px solid var(--rule);
-    font-family: 'Libre Baskerville', serif;
-    font-size: 5pt;
-    font-style: italic;
-    color: var(--light);
-    line-height: 1.6;
-  }
-
-  /* ─── ALL DAY BADGE ─── */
-  .all-day-badge {
-    display: inline-block;
-    border: 2px solid var(--ink);
-    border-radius: 50%;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 6pt;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 2mm 3mm;
-    color: var(--ink);
-    float: right;
-    margin-top: -8mm;
-  }
-
-  .gf-note {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 6pt;
-    font-style: italic;
-    color: var(--light);
-  }
-
-  .wine-detail {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 5.5pt;
-    font-style: italic;
-    color: var(--light);
-    line-height: 1.4;
-  }
-
-  @media print {
-    body { background: none; padding: 0; }
-    .page { box-shadow: none; }
-  }
-</style>
-</head>
-<body>
-<div class="page">
-
-  <!-- ════════════ LEFT PANEL: DRINKS ════════════ -->
-  <div class="panel panel-left">
-    <div class="section-title"><span class="icon">☕</span> Drinks <span class="icon" style="margin-left:auto;">🍸</span></div>
-    <hr class="section-rule">
-
-    <div class="two-col">
-      <!-- COFFEE -->
-      <div>
-        <div class="cat-label">Coffee…</div>
-        <div class="item"><span class="item-name">Espresso</span><span class="item-price">4.5</span></div>
-        <div class="item"><span class="item-name">Short Macchiato</span><span class="item-price">4.8</span></div>
-        <div class="item"><span class="item-name">Long Macchiato</span><span class="item-price">5.3</span></div>
-        <div class="item"><span class="item-name">Piccolo Latte</span><span class="item-price">4.8</span></div>
-        <div class="item"><span class="item-name">Latte / Cappuccino / Flat White / Long Black</span><span class="item-price">5.0</span></div>
-        <div class="item"><span class="item-name">Mochaccino / White Mocha / Chai</span><span class="item-price">5.3</span></div>
-        <div class="item"><span class="item-name">Marble Mocha</span><span class="item-price">5.4</span></div>
-        <div class="item"><span class="item-name">Hot Chocolate / White Hot Chocolate</span><span class="item-price">5.0</span></div>
-        <div class="item item-indent item-mod"><span class="item-name">+ Medium (12oz)</span><span class="item-price">.7</span></div>
-        <div class="item item-indent item-mod"><span class="item-name">+ Large (16oz)</span><span class="item-price">1.4</span></div>
-        <div class="item item-indent item-mod"><span class="item-name">+ Jumbo (20oz)</span><span class="item-price">2.0</span></div>
-        <div class="item item-indent item-mod"><span class="item-name">+ Soy / Almond / Lactose Free / Oat</span><span class="item-price">.7</span></div>
-        <div class="item item-indent item-mod"><span class="item-name">+ Decaf</span><span class="item-price">.7</span></div>
-        <div class="item item-indent item-mod"><span class="item-name">+ Extra Espresso Shot / Strong</span><span class="item-price">.7</span></div>
-        <div class="item item-indent item-mod"><span class="item-name">+ Vanilla / Caramel / Hazelnut</span><span class="item-price">.7</span></div>
-
-        <div class="cat-label">Tea</div>
-        <div class="item"><span class="item-name">Single Pot</span><span class="item-price">5.0</span></div>
-        <div class="item-desc">English breakfast / lemongrass &amp; ginger / peppermint / spring green / chai / earl grey / chamomile / honeydew green</div>
-
-        <div class="cat-label">Juice</div>
-        <div class="item"><span class="item-name">Freshly Squeezed Orange</span><span class="item-price">6.5</span></div>
-        <div class="item"><span class="item-name">Freshly Squeezed Pineapple</span><span class="item-price">7.0</span></div>
-        <div class="item"><span class="item-name">Freshly Squeezed Orange &amp; Pineapple</span><span class="item-price">7.0</span></div>
-        <div class="item"><span class="item-name">Apple Juice</span><span class="item-price">5</span></div>
-
-        <div class="cat-label">Frappes</div>
-        <div class="item"><span class="item-name">Chocolate, Coffee</span><span class="item-price">7.5</span></div>
-        <div class="item"><span class="item-name">Mocha, Chai</span><span class="item-price">7.8</span></div>
-        <div class="item"><span class="item-name">Mango, Guava &amp; Lychee / Tropical Twist / Pomegranate &amp; Raspberry / Watermelon &amp; Lime / Mandarin &amp; Grape</span><span class="item-price">7.5</span></div>
-
-        <div class="cat-label">Ice Tea</div>
-        <div class="item"><span class="item-name">Zesty Lemon / Just Peachy</span></div>
-        <div class="item"><span class="item-name">Watermelon &amp; Lime / Mandarin &amp; Grape</span><span class="item-price">7.0</span></div>
-
-        <div class="cat-label">Milk Based</div>
-        <div class="item"><span class="item-name">Iced Coffee / Iced Chocolate</span><span class="item-price">7.0</span></div>
-        <div class="item"><span class="item-name">Iced Mocha / Iced Chai</span><span class="item-price">7.3</span></div>
-        <div class="item"><span class="item-name">Iced Latte</span><span class="item-price">6.5</span></div>
-        <div class="item"><span class="item-name">Milkshake</span><span class="item-price">7.0</span></div>
-        <div class="item"><span class="item-name">Thickshake</span><span class="item-price">8.0</span></div>
-        <div class="item-desc">Chocolate / Strawberry / Caramel / Coffee / Vanilla / Banana / Lime / Blue Heaven</div>
-      </div>
-
-      <!-- RIGHT COL OF DRINKS -->
-      <div>
-        <div class="cat-label">Beer</div>
-        <div class="item"><span class="item-name">Cascade Light</span><span class="item-price">8.5</span></div>
-        <div class="item"><span class="item-name">Shepparton Brewery — Careful Cobber Mid Strength</span><span class="item-price">8.0</span></div>
-        <div class="item"><span class="item-name">Sheppxico Lager</span><span class="item-price">9.0</span></div>
-        <div class="item"><span class="item-name">Maude Street Pale Ale</span><span class="item-price">9.0</span></div>
-        <div class="item"><span class="item-name">Hazy Ale</span><span class="item-price">9.0</span></div>
-        <div class="item"><span class="item-name">Corona</span><span class="item-price">10.0</span></div>
-
-        <div class="cat-label">Snakes &amp; Ladders™ Cider</div>
-        <div class="item"><span class="item-name">Apple</span><span class="item-price">11.0</span></div>
-
-        <div class="cat-label">Wine</div>
-        <div class="item"><span class="item-name">Long Row Sparkling 200ml</span><span class="item-price">9.0</span></div>
-        <div class="wine-detail">Fresh &amp; fruity with creamy bubbles</div>
-        <div class="item"><span class="item-name">Villa Jolanda Prosecco 200ml</span><span class="item-price">12.0</span></div>
-        <div class="wine-detail">Clean with lively aromas, light &amp; well balanced</div>
-        <div class="item"><span class="item-name">Water Wheel Chardonnay</span><span class="item-price">8.0 · 33</span></div>
-        <div class="wine-detail">Tropical fruits with nutty oak</div>
-        <div class="item"><span class="item-name">Long Row Pinot Grigio</span><span class="item-price">8 · 30</span></div>
-        <div class="wine-detail">Pears, apples &amp; a hint of white peach</div>
-        <div class="item"><span class="item-name">Naturalis Organic Sauvignon Blanc</span><span class="item-price">9 · 37</span></div>
-        <div class="wine-detail">Fresh marlborough style, very drinkable</div>
-        <div class="item"><span class="item-name">Sugar &amp; Spice Moscato</span><span class="item-price">8 · 30</span></div>
-        <div class="wine-detail">Crisp &amp; fresh bursting with grapey flavours</div>
-        <div class="item"><span class="item-name">Wild Olive Organic Rosé</span><span class="item-price">10 · 41</span></div>
-        <div class="wine-detail">Fresh raspberry &amp; redcurrant, clean &amp; soft</div>
-        <div class="item"><span class="item-name">Studio Series Merlot</span><span class="item-price">7.5 · 29</span></div>
-        <div class="wine-detail">Enticing aromas of cherry &amp; blackcurrant</div>
-        <div class="item"><span class="item-name">Stonegate Cabernet Sauvignon</span><span class="item-price">8 · 30</span></div>
-        <div class="wine-detail">Ripe red berries &amp; soft tannins</div>
-        <div class="item"><span class="item-name">Mondiale McLaren Vale Shiraz</span><span class="item-price">8 · 30</span></div>
-        <div class="wine-detail">Spicy cherry &amp; plum with some herbal notes</div>
-        <div class="item"><span class="item-name">Temple Bruer Org. Shiraz Malbec</span><span class="item-price">11 · 45</span></div>
-        <div class="wine-detail">Cert. organic &amp; preservative free. Berries &amp; cocoa</div>
-
-        <div class="cat-label">Cocktails</div>
-        <div class="item"><span class="item-name">Mimosa</span><span class="item-price">12</span></div>
-        <div class="wine-detail">Freshly squeezed orange juice, triple sec &amp; sparkling wine</div>
-        <div class="item"><span class="item-name">Moscow Mule</span><span class="item-price">12</span></div>
-        <div class="wine-detail">Vodka, ginger beer &amp; fresh lime</div>
-        <div class="item"><span class="item-name">Fruit Tingle</span><span class="item-price">13</span></div>
-        <div class="wine-detail">Vodka, blue curacao, raspberry &amp; lemonade</div>
-        <div class="item"><span class="item-name">Mojito</span><span class="item-price">15</span></div>
-        <div class="wine-detail">White rum, lime, mint &amp; soda</div>
-        <div class="item"><span class="item-name">Degani Espresso Martini</span><span class="item-price">18</span></div>
-        <div class="wine-detail">Espresso, vodka, kahlua &amp; crème de cacao</div>
-
-        <div class="cat-label">Spirits &amp; Liqueurs</div>
-        <div class="item"><span class="item-name">Jim Beam</span><span class="item-price">9</span></div>
-        <div class="item"><span class="item-name">Johnny Walker Red</span><span class="item-price">9.5</span></div>
-        <div class="item"><span class="item-name">Wild Turkey</span><span class="item-price">10.5</span></div>
-        <div class="item"><span class="item-name">Jack Daniels</span><span class="item-price">10.5</span></div>
-        <div class="item"><span class="item-name">Southern Comfort</span><span class="item-price">10.5</span></div>
-        <div class="item"><span class="item-name">Bundaberg</span><span class="item-price">9</span></div>
-        <div class="item"><span class="item-name">Canadian Club</span><span class="item-price">9</span></div>
-        <div class="item"><span class="item-name">Bacardi</span><span class="item-price">9</span></div>
-        <div class="item"><span class="item-name">Gin</span><span class="item-price">9</span></div>
-        <div class="item"><span class="item-name">Vodka</span><span class="item-price">9</span></div>
-        <div class="item"><span class="item-name">Tequila</span><span class="item-price">10</span></div>
-        <div class="item"><span class="item-name">Liqueur</span><span class="item-price">10</span></div>
-        <div class="wine-detail">Baileys / Cointreau / Kahlua / Midori / Malibu / Frangelico / Brandy</div>
-
-        <div class="cat-label">Soft Drinks &amp; Sparkling</div>
-        <div class="item"><span class="item-name">Lemon, Lime &amp; Bitters</span><span class="item-price">6</span></div>
-        <div class="item"><span class="item-name">Raspberry Lemonade</span><span class="item-price">5.5</span></div>
-        <div class="item"><span class="item-name">Soda Water</span><span class="item-price">5.0</span></div>
-        <div class="item"><span class="item-name">Can of Soft Drink</span><span class="item-price">4.5</span></div>
-        <div class="wine-detail">Coke / Diet Coke / Coke No Sugar / Lift / Sprite / Fanta</div>
-        <div class="item"><span class="item-name">Tiro Lightly Carbonated™</span><span class="item-price">6.0</span></div>
-        <div class="wine-detail">Passionfruit / Pink Grapefruit / Red Orange / Chinotto</div>
-        <div class="item"><span class="item-name">Riverport™</span><span class="item-price">6.0</span></div>
-        <div class="wine-detail">Creamy Soda / Portello / Ginger Beer</div>
-        <div class="item"><span class="item-name">Splitrock™ Sparkling Water</span><span class="item-price">5.5</span></div>
-        <div class="item"><span class="item-name">Bottled Water</span><span class="item-price">4.2</span></div>
-        <div class="item"><span class="item-name">Red Bull</span><span class="item-price">7.0</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- VERTICAL DIVIDER -->
-  <div class="divider"></div>
-
-  <!-- ════════════ RIGHT PANEL: BREAKFAST + SHARE ME ════════════ -->
-  <div class="panel panel-right">
-
-    <!-- BREAKFAST HEADER -->
-    <div style="display:flex; align-items:flex-start; justify-content:space-between;">
-      <div style="flex:1;">
-        <div class="section-title">Breakfast</div>
-        <hr class="section-rule">
-      </div>
-      <div class="all-day-badge">All<br>Day!</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4c061c" />
+    <meta name="description" content="The wedding celebrations of Ramandeep and Simar." />
+    <title>Ramandeep &amp; Simar — December 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-loader" id="page-loader" aria-label="Loading invitation">
+      <img src="rs-logo.png" alt="Ramandeep and Simar monogram" />
     </div>
 
-    <div class="two-col">
-      <!-- LEFT BREAKFAST COL -->
-      <div>
-        <div class="bk-item">
-          <div class="bk-name">Toast <span>*</span> <span class="price">9</span></div>
-          <div class="bk-desc">Two buttered pieces of the local best w/ your selection of condiments</div>
+    <main id="page-content" aria-hidden="true">
+      <section class="hero section-shell" id="home">
+        <div class="hero-frame" aria-hidden="true"></div>
+        <div class="hero-content reveal is-visible">
+          <img class="hero-mark" src="rs-logo.png" alt="" />
+          <p class="eyebrow">Together with their families</p>
+          <h1>Ramandeep<br /><span>&amp;</span> Simar</h1>
+          <div class="rule"></div>
+          <p class="hero-line">Two hearts.<br />One beautiful beginning.</p>
+          <a class="scroll-cue" href="#welcome">Scroll to explore <span aria-hidden="true">↓</span></a>
         </div>
-        <div class="bk-item">
-          <div class="bk-name">Egg &amp; Bacon Roll <span>*</span> <span class="price">16</span></div>
-          <div class="bk-desc">Fried eggs &amp; crispy bacon on a lightly toasted bun w/ caramelised onion, cheese &amp; tomato relish</div>
-        </div>
-        <div class="bk-item">
-          <div class="bk-name">Eggs Benedict <span>*</span> <span class="price">22</span></div>
-          <div class="bk-desc">English muffin topped w/ soft poached eggs, hollandaise &amp; your choice of either ham, bacon or smoked salmon</div>
-        </div>
-        <div class="bk-item">
-          <div class="bk-name">Breakfast Bruschetta <span>*</span> <span class="price">24.5</span></div>
-          <div class="bk-desc">Lightly toasted sourdough w/ pan fried cherry tomato, spanish onion, basil &amp; baby spinach topped w/ a soft poached egg, balsamic &amp; fetta</div>
-        </div>
-        <div class="bk-item">
-          <div class="bk-name">Fruit Loaf <span class="price">12</span></div>
-          <div class="bk-desc">Two buttered pieces of our tasty &amp; heavy loaf w/ your selection of condiments</div>
-        </div>
-        <div class="bk-item">
-          <div class="bk-name">Brekky Wrap <span class="price">17</span></div>
-          <div class="bk-desc">Scrambled egg, crispy bacon, cheese, hash brown &amp; smoky bbq sauce in a warm tortilla</div>
-        </div>
-        <div class="bk-item">
-          <div class="bk-name">Cinnamon Apple Waffles <span class="price">21</span></div>
-          <div class="bk-desc">Golden brown waffles w/ poached apple, toasted walnuts, maple syrup &amp; vanilla ice cream</div>
-        </div>
-        <div class="bk-item">
-          <div class="bk-name">Smashed Avo <span>*</span> <span class="price">27.5</span></div>
-          <div class="bk-desc">Avocado on dark rye w/ basil &amp; a poached egg dressed w/ grilled corn, chilli &amp; parmesan</div>
-        </div>
-        <div class="bk-item">
-          <div class="bk-name">Blueberry Pancakes <span class="price">22</span></div>
-          <div class="bk-desc">Three fluffy blueberry pancakes stacked w/ maple syrup &amp; vanilla ice cream</div>
-        </div>
-      </div>
+      </section>
 
-      <!-- RIGHT BREAKFAST COL -->
-      <div>
-        <div class="bk-item">
-          <div class="bk-name">Eggs on Toast <span>*</span> <span class="price">15</span></div>
-          <div class="bk-desc">Two eggs fried, poached or scrambled on two pieces of toast</div>
+      <section class="welcome parallax-section" id="welcome">
+        <div class="welcome-copy reveal">
+          <h2>A celebration of love, family <span>&amp;</span> togetherness.</h2>
+          <p>
+            With the blessings of our families, we invite you to join us as we
+            begin a beautiful new chapter of our lives. Your presence will make
+            our celebrations even more special. We look forward to sharing
+            these precious moments, laughter and traditions with you.
+          </p>
+          <p class="signature">With love,<br />Raman &amp; Simar</p>
         </div>
-        <div class="bk-item">
-          <div class="bk-name">Spanish Eggs <span>*</span> <span class="price">18.5</span></div>
-          <div class="bk-desc">Scrambled eggs w/ spicy chorizo &amp; spring onion on two pieces of sourdough</div>
+        <div class="couple-window" aria-hidden="true">
+          <img class="couple-parallax" src="bg_base_parallex.png" alt="" />
         </div>
-        <div class="bk-item">
-          <div class="bk-name">Pulled Lamb Hash <span class="price">21</span></div>
-          <div class="bk-desc">Slow cooked lamb, potato, pumpkin, onion, carrot &amp; zucchini on spinach w/ relish &amp; a poached egg</div>
-        </div>
-        <div class="bk-item">
-          <div class="bk-name">The Big Breakfast <span class="price">28.5</span></div>
-          <div class="bk-desc">Two eggs fried, poached or scrambled on a piece of sourdough w/ crispy bacon, beef sausage, onion rings, mushroom, grilled tomato, baby spinach, a hash brown &amp; hollandaise sauce</div>
+      </section>
+
+      <section class="celebrations section-shell" id="celebrations">
+        <div class="celebrations-heading reveal">
+          <p class="eyebrow">Mark your calendar</p>
+          <h2>The celebrations</h2>
+          <div class="event-rail" aria-hidden="true">
+            <span><b>1<sup>st</sup></b><small>Dec</small></span>
+            <i></i>
+            <span><b>2<sup>nd</sup></b><small>Dec</small></span>
+            <i></i>
+            <span><b>3<sup>rd</sup></b><small>Dec</small></span>
+          </div>
+          <p class="event-rail-labels">Jaggo Night &amp; Haldi Function <em>·</em> Ring Ceremony <em>·</em> The Wedding Day &amp; Reception</p>
         </div>
 
-        <hr class="section-rule-thin">
-
-        <div class="extras-label">Extras</div>
-        <div class="extras-line">Bacon / Sausage / Ham  5</div>
-        <div class="extras-line">Onion Rings / Baby Spinach / Grilled Tomato / Mushroom  4.5</div>
-        <div class="extras-line">Avocado  4 &nbsp;/&nbsp; Smoked Salmon  6 &nbsp;/&nbsp; Hash Brown  2 &nbsp;/&nbsp; Egg  2.5 &nbsp;/&nbsp; Fetta  2.5</div>
-        <div class="extras-line">Hollandaise  2.5 &nbsp;/&nbsp; Tomato Relish  2 &nbsp;/&nbsp; Tomato Sauce  .5 &nbsp;/&nbsp; BBQ Sauce  .5</div>
-
-        <div class="bs-grid">
-          <div>
-            <div class="bs-head">Breads</div>
-            <div class="bs-item"><span>White</span></div>
-            <div class="bs-item"><span>Sourdough</span></div>
-            <div class="bs-item"><span>Multigrain</span></div>
-            <div class="bs-item"><span>Dark Rye</span></div>
-            <div class="bs-item"><span>Gluten Free *</span><span>3.5</span></div>
-          </div>
-          <div>
-            <div class="bs-head">Spreads</div>
-            <div class="bs-item"><span>Strawberry Jam</span></div>
-            <div class="bs-item"><span>Raspberry Jam</span></div>
-            <div class="bs-item"><span>Vegemite</span></div>
-            <div class="bs-item"><span>Peanut Butter</span></div>
-            <div class="bs-item"><span>Honey</span></div>
-            <div class="bs-item"><span>Nutella</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─── SHARE ME ─── -->
-    <div class="share-section">
-      <div class="section-title" style="font-size:22pt; margin-bottom:1mm;">Share Me</div>
-      <hr class="section-rule">
-      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:0 5mm;">
-        <!-- COL 1 -->
-        <div>
-          <div class="bk-item">
-            <div class="bk-name">Garlic Bread <span>*</span> <span class="price">10</span></div>
-            <div class="bk-desc">Toasted ciabatta w/ herb &amp; garlic butter &amp; olive oil drizzle</div>
-          </div>
-          <div class="item item-mod"><span class="item-name">+ Add Melted Cheese</span><span class="item-price">13.5</span></div>
-          <div class="bk-item" style="margin-top:3mm;">
-            <div class="bk-name">Seared Scallops <span>*</span> <span class="price">23.5</span></div>
-            <div class="bk-desc">Five scallops on chorizo, prosciutto &amp; pumpkin puree w/ salsa verde</div>
+        <div class="horizontal-scroll" id="horizontal-scroll">
+          <div class="horizontal-sticky">
+            <div class="cards-intro">
+              <p>Four occasions.<br />One joyous celebration.</p>
+              <span>Scroll to discover <b>→</b></span>
+            </div>
+            <div class="card-track" id="card-track">
+              <a class="event-card" href="https://share.google/9q3fKpBlNQ7MOE7Qo" target="_blank" rel="noopener noreferrer">
+                <div class="card-visual"><img src="function_1.png" alt="Jaggo Night and Haldi Function" /><span>01<br />Dec</span></div>
+                <div class="event-copy"><p class="card-date">01 December 2026</p><h3>Jaggo Night &amp;<br />Haldi Function</h3><p>From 4:00 PM onwards · AI White Pearl, Madan Mahal</p><small>An evening of Punjabi traditions, music and celebration.</small></div>
+                <span class="card-link">View invitation <b>↗</b></span>
+              </a>
+              <a class="event-card" href="https://share.google/mKDa5grw8xsFR871y" target="_blank" rel="noopener noreferrer">
+                <div class="card-visual"><img src="function_2.png" alt="Ring Ceremony" /><span>02<br />Dec</span></div>
+                <div class="event-copy"><p class="card-date">02 December 2026</p><h3>Ring Ceremony<br />&amp; Sagan</h3><p>Anantara Downtown, Jabalpur</p><small>An evening of blessings, joy and cherished moments.</small></div>
+                <span class="card-link">View invitation <b>↗</b></span>
+              </a>
+              <a class="event-card" href="https://share.google/UpDWHdBKzhrwWNYpW" target="_blank" rel="noopener noreferrer">
+                <div class="card-visual"><img src="function_3.png" alt="Anand Karaj" /><span>03<br />Dec</span></div>
+                <div class="event-copy"><p class="card-date">03 December 2026</p><h3>Anand Karaj</h3><p>Bilari Gurudwara, Jabalpur</p><small>A sacred beginning, surrounded by love and blessings.</small></div>
+                <span class="card-link">View invitation <b>↗</b></span>
+              </a>
+              <a class="event-card" href="https://share.google/lhevMjoCLMwQvIK3h" target="_blank" rel="noopener noreferrer">
+                <div class="card-visual"><img src="function_4.png" alt="Wedding Reception" /><span>03<br />Dec</span></div>
+                <div class="event-copy"><p class="card-date">03 December 2026</p><h3>Wedding Day<br />&amp; Reception</h3><p>Nirvana Resort, Bilhari</p><small>Join us for an evening of warmth, laughter and love.</small></div>
+                <span class="card-link">View invitation <b>↗</b></span>
+              </a>
+            </div>
           </div>
         </div>
-        <!-- COL 2 -->
-        <div>
-          <div class="bk-item">
-            <div class="bk-name">Bowl of Chips <span class="price">16.5</span></div>
-            <div class="bk-desc">w/ tomato sauce &amp; aioli</div>
-          </div>
-          <div class="item item-mod"><span class="item-name">+ Load it w/ bacon, spring onion &amp; creamy cheese sauce</span><span class="item-price">21.5</span></div>
-          <div class="bk-item" style="margin-top:3mm;">
-            <div class="bk-name">Bruschetta <span>*</span> <span class="price">16</span></div>
-            <div class="bk-desc">Toasted ciabatta w/ fresh tomato, spanish onion, basil, danish fetta &amp; balsamic</div>
-          </div>
-          <div class="bk-item" style="margin-top:3mm;">
-            <div class="bk-name">Buffalo Chicken Wings <span class="price">25</span></div>
-            <div class="bk-desc">Deep fried w/ hot sauce, rocket &amp; creamy garlic lime dipping sauce</div>
-          </div>
-        </div>
-        <!-- COL 3 -->
-        <div>
-          <div class="bk-item">
-            <div class="bk-name">Bowl of Wedges <span class="price">18.5</span></div>
-            <div class="bk-desc">w/ sweet chilli sauce &amp; sour cream</div>
-          </div>
-          <div class="item item-mod"><span class="item-name">+ Load it w/ bacon, spring onion &amp; creamy cheese sauce</span><span class="item-price">24.5</span></div>
-          <div class="bk-item" style="margin-top:3mm;">
-            <div class="bk-name">Chicken &amp; Bacon Croquettes <span class="price">25</span></div>
-            <div class="bk-desc">Three pillows of chicken, cheese &amp; bacon, deep fried, served on rocket &amp; spiced mayo</div>
-          </div>
-        </div>
-      </div>
-    </div>
+      </section>
 
-    <div class="footnote">
-      * Denotes menu items that can be made gluten free &amp; may attract surcharge. All menu items are prepared in a kitchen that contains gluten. Whilst the utmost care is taken, we cannot guarantee that trace contamination will not occur. Please consider this when ordering from our menu.<br>
-      ** 10% surcharge applies on public holidays.
-    </div>
+      <section class="story" id="our-story">
+        <img class="story-background" src="couple_bg.png" alt="" />
+        <div class="story-content reveal">
+          <a class="section-pill" href="#our-story">Our story</a>
+          <h2>Two families. Two hearts.<br />One forever.</h2>
+          <img class="story-couple" src="couple_content_photo.png" alt="Ramandeep and Simar" />
+          <h3>A new chapter begins.</h3>
+          <p>
+            Some stories are written in the stars, and some begin with two
+            people finding their way to each other.<br /><br />As Raman and
+            Simar come together, we invite you to be part of a journey filled
+            with love, blessings and beautiful memories.<br /><br />Here’s to forever.
+          </p>
+        </div>
+      </section>
 
-  </div><!-- /panel-right -->
-</div><!-- /page -->
-</body>
+      <section class="details section-shell" id="details">
+        <div class="details-inner reveal">
+          <p class="eyebrow">Venue guide</p>
+          <h2>Find your way to the celebrations.</h2>
+          <div class="details-head" aria-hidden="true"><span>Function</span><i></i><span>Venue</span></div>
+          <dl class="venue-list">
+            <div><dt>Jaggo Night &amp; Haldi Function</dt><dd>AI White Pearl, Madan Mahal</dd></div>
+            <div><dt>Ring Ceremony &amp; Sagan</dt><dd>Anantara Downtown, Jabalpur</dd></div>
+            <div><dt>Anand Karaj</dt><dd>Bilari Gurudwara, Jabalpur</dd></div>
+            <div><dt>Reception</dt><dd>Nirvana Resort, Bilhari</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="rsvp reveal" id="rsvp">
+        <div class="rsvp-inner">
+          <p>Your presence would mean the world to us.<br />You are cordially invited. RSVP Please!</p>
+          <a class="rsvp-button" href="https://wa.link/q4ygij" target="_blank" rel="noopener noreferrer">Submit RSVP <span>↗</span></a>
+        </div>
+      </section>
+
+      <section class="closing section-shell">
+        <div class="closing-inner reveal">
+          <img src="rs-logo.png" alt="" class="closing-mark" />
+          <h2>With Love, Raman &amp; Simar<br />We can’t wait to celebrate with you.</h2>
+          <p>Jabalpur · December 2026</p>
+        </div>
+      </section>
+
+      <footer class="family section-shell">
+        <div class="family-inner reveal">
+          <h2>With Regards &amp; Best Wishes</h2>
+          <div class="parents">
+            <div><h3>Groom’s Parents</h3><p>SD Hardeep Singh Virdi<br />SDN Harjeet Kaur Virdi</p></div>
+            <div><h3>Bride’s Parents</h3><p>SD Jasbir Singh Sachdev<br />SDN Gurdeep Kaur Sachdev</p></div>
+          </div>
+          <div class="grandparents"><h3>Grandparents</h3><p>Late SD Chandan Singh Virdi &nbsp;·&nbsp; Late SDN Niranjan Kaur Virdi</p></div>
+          <div class="stars"><h3>The little stars of our family</h3><p>Bisman Kaur &nbsp;·&nbsp; Jayveer Singh &nbsp;·&nbsp; Harseerat Kaur<br />Zorawar Singh &nbsp;·&nbsp; Kanak Kaur</p></div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
 </html>
